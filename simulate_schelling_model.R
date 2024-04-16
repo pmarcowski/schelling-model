@@ -7,7 +7,6 @@
 # This code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
-# Schelling's Model of Segregation
 # This script simulates a variation of Schelling's model of segregation.
 # Agents of two types are randomly placed on a grid. During each time step,
 # each agent decides whether it is happy based on the types of neighboring agents.
@@ -15,22 +14,25 @@
 
 get_neighbors <- function(coords, cells_side) {
   # Calculates the coordinates of all neighboring cells for a given cell
-  # in a toroidal grid (a grid where edges are connected to the opposite edge, creating
-  # a continuous surface). It considers eight possible directions for neighbors (N, NE,
-  # E, SE, S, SW, W, NW) relative to the given cell's coordinates.
+  # in a toroidal grid (a grid where edges are connected to the opposite edge, 
+  # creating a continuous surface). It considers eight possible directions for 
+  # neighbors (N, NE, E, SE, S, SW, W, NW) relative to the given cell's coordinates.
   #
   # Args:
-  #   coords: A numeric vector of length 2 representing the coordinates (row, column) of
-  #           the cell for which neighbors are to be found. Coordinates are 1-indexed.
-  #   cells_side: An integer indicating the number of cells on one side of the square grid.
-  #               This value is used to ensure the toroidal property of the grid, wrapping
-  #               around coordinates that exceed grid boundaries.
+  #   coords: A numeric vector of length 2 representing the coordinates (row, 
+  #           column) of the cell for which neighbors are to be found. Coordinates 
+  #           are 1-indexed.
+  #   cells_side: An integer indicating the number of cells on one side of the 
+  #               square grid. This value is used to ensure the toroidal property
+  #               of the grid, wrapping around coordinates that exceed grid 
+  #               boundaries.
   #
   # Returns:
-  #   A matrix where each row represents the coordinates of a neighboring cell. There
-  #   are 8 rows in total, one for each direction from the input cell. Coordinates are
-  #   adjusted to maintain the toroidal nature of the grid, ensuring that all returned
-  #   coordinates are valid positions within the grid's dimensions.
+  #   A matrix where each row represents the coordinates of a neighboring cell. 
+  #   There are 8 rows in total, one for each direction from the input cell. 
+  #   Coordinates are adjusted to maintain the toroidal nature of the grid, 
+  #   ensuring that all returned coordinates are valid positions within the grid's 
+  #   dimensions.
 
   n <- c()
   directions <-
